@@ -1,0 +1,23 @@
+<%include _header%>
+    <h1>Result</h1>
+
+    <%lu.forEach((equip) =>{%>
+        <div style="" class="panel panel-info">
+            <div style="background-color: #545357" class="panel-heading">
+                <a href="/computers/<%=equip.song%>">
+                    <%=equip.song%>
+                </a>
+            </div>
+            <%if (equip.song){%>
+                <div style="color: black;" class="panel-body">
+                    <%=equip.name()%>
+                    
+                </div>
+
+            <%}%>
+        </div>
+        
+        
+        <%})%>
+
+            <%include _footer%>

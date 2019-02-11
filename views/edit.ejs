@@ -1,0 +1,16 @@
+<% include _header %>
+
+<h1>Update your profile</h1>
+<form action="/edit" method="post">
+    <div class="form-group">
+        <input name="username" type="text" class="form-control"
+        placeholder="New Username"
+        value="<%= currentuser.username || "" %>"/>
+        <input name="bio" type="text" class="form-control"
+        placeholder="Bio"
+        value="<%= currentuser.bio%>"/>
+    </div>
+    <input type="submit" value="Update" class="btn btn-primary btn-block"/>
+</form>
+
+<% include _footer %>

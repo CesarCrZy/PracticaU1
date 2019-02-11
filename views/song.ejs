@@ -1,0 +1,33 @@
+<%include _header%>
+
+    <% if (currentuser){%>
+        <div  class="panel panel-info">
+            
+        <%}%>
+            <div style="background-color: #545357" class="panel-heading">
+                <h1></h1>
+                    <%= artist.name() %>
+                </h1>
+            </div>
+            
+            <div style="color: black; padding: 0; " class="panel-body">
+                <p>
+                    Song: <%= artist.song%>
+                </p>   
+                <p>Date out: <%= artist.fecha%></p>
+                <p>Colaborator: <%= artist.user%></p>
+            </div>
+            <p>Video From Youtube</p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= artist.link%>" frameborder="0" allowfullscreen></iframe> 
+                
+                        
+
+                
+                
+            
+               
+        
+        
+  
+
+<%include _footer%>
