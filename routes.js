@@ -7,6 +7,7 @@ var Recaptcha = require("express-recaptcha").Recaptcha;
 
 var acl = require("express-acl");
 
+
 var passport = require("passport");
 
 var router = express.Router();
@@ -70,61 +71,7 @@ router.get("/videos", (req, res) => {
     res.render("videos");
 });
 
-router.post('/signup', function(req, res, next) {
-    var username = req.body.username;
-    var password = req.body.password;
-    var role = req.body.role;
-    var displayName = req.body.displayName;
-
-    verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
-        if (success) {
-            //res.render("index");
-            User.findOne({ username: username }, (err, user) => {
-                if (err) {
-                    return (err);
-                }
-                if (user) {
-                    req.flash("error", "El nombre de usuario ya existe");
-                    return res.redirect("/signup");
-                }
-                var newUser = new User({
-                    username: username,
-                    password: password,
-                    role: role
-                });
-                newUser.save(next);
-                return res.redirect("/");
-            });
-                // TODO: do registration using params in req.body
-        } else {
-            res.redirect("/signup");
-                // TODO: take them back to the previous page
-                // and for the love of everyone, restore their inputs
-        }
-});
-});
-
-var SECRET = "6LfQs2cUAAAAAPzKeyTdvjZ-84YwVpF_eTQIvMqW";
-
-// Helper function to make API call to recatpcha and check response
-function verifyRecaptcha(key, callback) {
-        https.get("https://www.google.com/recaptcha/api/siteverify?secret=" + SECRET + "&response=" + key, function(res) {
-                var data = "";
-                res.on('data', function (chunk) {
-                        data += chunk.toString();
-                });
-                res.on('end', function() {
-                        try {
-                                var parsedData = JSON.parse(data);
-                                callback(parsedData.success);
-                        } catch (e) {
-                                callback(false);
-                        }
-                });
-        });
-}
-
-/*router.post("/signup", (req, res, next) => {
+router.post("/signup", (req, res, next) => {
     var username = req.body.username;
     var password = req.body.password;
     var role = req.body.role;
@@ -145,7 +92,7 @@ function verifyRecaptcha(key, callback) {
         newUser.save(next);
         return res.redirect("/");
     });
-});*/
+});
 router.get("/users", (req, res, next) => {
     User.find()
         .sort({  createdAt: "descending" })
@@ -280,7 +227,7 @@ router.post("/edit", ensureAuthenticated, (req, res, next) => {
             next(err);
             return;
         }
-        req.flash("info", "Perfil actualizado!");
+        req.flash("info", "Bio actualizado!");
         res.redirect("/edit");
     });
 });

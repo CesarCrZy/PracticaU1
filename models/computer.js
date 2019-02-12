@@ -6,7 +6,6 @@ var SALT_FACTOR = 10;
 var compuSchema = mongoose.Schema({
     nameArtist: { type: String, unique: false},
     song: { type: String},
-    fecha: { type: Date, default: Date.now },
     user: {type: String},
     link: {type: String}
     //description: { type: String, required: true },

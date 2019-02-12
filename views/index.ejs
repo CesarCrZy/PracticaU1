@@ -1,16 +1,18 @@
 <%include _header%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <h1>Welcome ma nigga!!</h1>
+    <h1>Canciones</h1>
 
     <%computers.forEach((equip) =>{%>
         <div class="panel panel-info">
             <div style="background-color: #545357" class="panel-heading">
+                <p style="color: black;">Nombre</p>
                 <a href="/computers/<%=equip.song%>">
                     <%=equip.song%>
                 </a>
             </div>
             <%if (equip.song){%>
                 <div style="color: black;" class="panel-body">
+                    <p>Nombre del Artista</p>
                     <%=equip.name()%>
                     
                 </div>

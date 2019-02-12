@@ -287,9 +287,21 @@ opacity: 0.65;" class="wrapper fadeInDown">
 
     <!-- Login Form -->
     <form action="/signup" method="POST" style="background-color: black;">
+      <div class="container">
+          <% errors.forEach(function(error){%>
+              <div class="alert alert-danger" role="alert">
+                  <%=error%>
+              </div>
+              <%})%>
+                  <%infos.forEach(function(info){%>
+                      <div class="alert alert-info" role="alert">
+                          <%=info%>
+                      </div>
+                      <%})%>
+      </div>
       
         <div class="form-group">
-                <input name="username" type="text" class="fadeIn second" placeholder="Username">
+                <input name="username" type="text" class="fadeIn second" placeholder="Username" required>
         </div>
         <div class="form-group">
                 <input style="background-color: #f6f6f6;
@@ -309,17 +321,17 @@ opacity: 0.65;" class="wrapper fadeInDown">
                 -o-transition: all 0.5s ease-in-out;
                 transition: all 0.5s ease-in-out;
                 -webkit-border-radius: 5px 5px 5px 5px;
-                border-radius: 5px 5px 5px 5px;" type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+                border-radius: 5px 5px 5px 5px;" type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" required>
         </div>
-      <div style="margin: 0;" class="form-group" >
-            <select name="role" class="form-group"
-                <option value="zombie_king">zombie_king</option>
-                <option value="Usuario">User</option>
-                <option value="Admin">Admin</option>
-            </select>
-      </div>
-      <div style="text-align: -webkit-center; background: black; border: 1px solid black;" class="g-recaptcha" data-sitekey="6LfQs2cUAAAAAMfq-V8dzYYpMHYPcc7en2G0rfdG" data-theme="dark"></div>
-      <input type="submit" class="fadeIn fourth" value="Sign Up">
+        <div style="margin: 0;" class="form-group" >
+          <select name="role" class="form-group"
+              <option value="zombie_king">zombie_king</option>
+              <option value="Usuario">User</option>
+              <option value="Admin">Admin</option>
+          </select>
+    </div>
+    
+      <input type="submit" class="fadeIn fourth" value="Registrarse">
     </form>
     
   </div>

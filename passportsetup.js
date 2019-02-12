@@ -20,8 +20,7 @@ passport.use("login", new LocalStrategy(function(username, password, done) {
             return done(err);
         }
         if (!user) {
-            return
-            done(null, false, { message: "No existe ningun user con ese nombre" });
+            return done(null, false, { message: "No existe ningun user con ese nombre" });
         }
         user.checkPassword(password, (err, isMatch) => {
             if (err) {
