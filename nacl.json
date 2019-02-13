@@ -1,83 +1,22 @@
 [{
     "group": "invitado",
-    "permissions": [
-        {
-            "resource": "/login",
+    "permissions": [{
+        "resource": "/*",
             "methods": ["GET","POST"],
             "action": "allow"
-        },
-        {
-            "resource": "/edit",
-            "methods": ["GET","POST"],
-            "action":"allow"
-        },
-        {
-            "resource": "/logout",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/signup",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/videos",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/search",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        }
+    }
+        
 
     ]
 },
 {
     "group": "Usuario",
     "permissions": [
-        {
-            "resource": "/login",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/edit",
-            "methods": ["GET","POST"],
-            "action":"allow"
-        },
-        {
-            "resource": "/logout",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/index",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/computers/*",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/ReSongs",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/videos",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        },
-        {
-            "resource": "/search",
-            "methods": ["GET","POST"],
-            "action": "allow"
-        }
-
+    {
+        "resource": "/*",
+        "methods": ["GET","POST"],
+        "action": "allow"
+    }
     ]
 }
 ,

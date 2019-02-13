@@ -165,7 +165,7 @@ router.post("/ReSongs", (req, res, next) => {
             return (err);
         }
         if (lu) {
-            req.flash("error", "This song is in the db");
+            req.flash("error", "Esta cancion ya se encuentra registrada");
             return res.redirect("/ReSongs");
         }
         var newSong = new Compu({
@@ -176,6 +176,7 @@ router.post("/ReSongs", (req, res, next) => {
             link: videoId
         });
         newSong.save(next);
+        req.flash("info", "Canción agregada exitosamente!");
         return res.redirect("/index");
     });
 });
@@ -188,16 +189,14 @@ router.post("/search", (req, res, next) => {
 
    
     Compu.find({ nameArtist: search }, (err, lu) => {
-        if (err) {
+        if(err){
             return (err);
         }
         if (lu) {
             return res.render("search", {lu: lu});
-            //return res.send(lu);
         }
-        
-        
     });
+        
 });
 
 router.post("/login", passport.authenticate("login", {
